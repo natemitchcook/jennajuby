@@ -1,21 +1,19 @@
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GE904J1RC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8GE904J1RC');
-</script>
-	<title>{{ .Title }} | A Travel Blog</title>
-	<link rel="stylesheet" href="/css/main.css" />
-
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Playfair+Display:400,700" rel="stylesheet">
+	<title>{{ .Title }} | A Travel Blog</title>
+	<meta name="description" content="{{ .Params.description }}">
+	<meta name="theme-color" content="#fff">
+	<link rel="canonical" href="https://www.jennajuby.com{{ .Permalink }}">
+
+	<!-- Preconnect to CDN for faster image loads -->
+	<link rel="preconnect" href="https://djh82r8xhqebh.cloudfront.net" crossorigin>
+	<link rel="dns-prefetch" href="https://djh82r8xhqebh.cloudfront.net">
+
+	<!-- Styles (self-hosted fonts included via CSS) -->
+	<link rel="stylesheet" href="/css/main.css" />
 
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" sizes="180x180" href="https://djh82r8xhqebh.cloudfront.net/images/favicon.png">
@@ -23,9 +21,6 @@
 	<link rel="icon" type="image/png" href="https://djh82r8xhqebh.cloudfront.net/images/favicon.png" sizes="16x16">
 	<link rel="manifest" href="/manifest.json">
 	<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400">
-	<meta name="theme-color" content="#fff">
-	<meta name="description" content="{{ .Params.description }}">
-	<link rel="canonical" href="https://www.jennajuby.com{{ .Permalink }}">
 
 	<!-- Open Graph -->
 	<meta property="og:type" content="article">
@@ -37,9 +32,17 @@
 	{{ else }}
 	<meta property="og:image" content="{{ .Params.image }}">
 	{{ end }}
+
+	<!-- Pinterest -->
 	<meta name="p:domain_verify" content="4d3a4728224197972051b9c85c714bed"/>
 	<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://djh82r8xhqebh.cloudfront.net/js/main.js"></script>
-	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GE904J1RC"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-8GE904J1RC');
+	</script>
 </head>

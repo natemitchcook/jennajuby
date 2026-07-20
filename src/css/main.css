@@ -24,6 +24,9 @@
  */
 
 
+/* Self-hosted Fonts */
+@import './imports/_fonts';
+
 /* External Library Includes */
 @import './imports/_reset';
 

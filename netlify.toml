@@ -1,8 +1,54 @@
 [build]
   command = "yarn build"
   publish = "dist"
+
 [build.environment]
-  YARN_VERSION = "1.9.4"
+  YARN_VERSION = "1.22.22"
+  NODE_VERSION = "18"
 
 [context.deploy-preview]
   command = "yarn build-preview"
+
+# Netlify Image CDN — transform CloudFront images on the fly
+[images]
+  remote_images = ["https://djh82r8xhqebh\\.cloudfront\\.net/.*"]
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-XSS-Protection = "1; mode=block"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://assets.pinterest.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://djh82r8xhqebh.cloudfront.net https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.algolia.net https://*.algolianet.com; frame-src https://www.google.com; frame-ancestors 'none'"
+
+# Long-term cache for static assets
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Build plugins
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+  [plugins.inputs]
+    siteUrl = "https://www.jennajuby.com"
+    providers = ["google", "bing"]

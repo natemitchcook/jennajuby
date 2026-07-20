@@ -5,10 +5,10 @@
 			{{ if ne .size true }}
 				<div class="w-100 w-50-ns ph1-ns">
 					{{ if eq .imagedescription "" }}
-						<img src="{{ .imagenew }}" alt="" >
+						<img src="{{ .imagenew }}" alt="" loading="lazy" >
 						<a class="pin-custom" href="https://www.pinterest.com/pin/create/button/?url={{ .Site.GetPage }}&media={{ .imagenew }}" data-pin-do="buttonPin" data-pin-custom="true"><img src="https://djh82r8xhqebh.cloudfront.net/images/pin-custom.png" /></a>
 					{{ else }}
-						<img src="{{ .imagenew }}" alt="{{ .imagedescription }}" >
+						<img src="{{ .imagenew }}" alt="{{ .imagedescription }}" loading="lazy" >
 						<div class="img-desc">{{ .imagedescription }}</div>
 						<a class="pin-custom" href="https://www.pinterest.com/pin/create/button/?url={{ .Site.GetPage }}&media={{ .imagenew }}&description={{ .imagedescription }}" data-pin-do="buttonPin" data-pin-custom="true"><img src="https://djh82r8xhqebh.cloudfront.net/images/pin-custom.png" /></a>
 					{{ end }}
@@ -16,10 +16,10 @@
 			{{ else }}
 				<div class="w-100 ph1-ns">
 					{{ if eq .imagedescription "" }}
-						<img src="{{ .imagenew }}" alt="" >
+						<img src="{{ .imagenew }}" alt="" loading="lazy" >
 						<a class="pin-custom" href="https://www.pinterest.com/pin/create/button/?url={{ .Site.GetPage }}&media={{ .imagenew }}" data-pin-do="buttonPin" data-pin-custom="true"><img src="https://djh82r8xhqebh.cloudfront.net/images/pin-custom.png" /></a>
 					{{ else }}
-						<img src="{{ .imagenew }}" alt="{{ .imagedescription }}" >
+						<img src="{{ .imagenew }}" alt="{{ .imagedescription }}" loading="lazy" >
 						<div class="img-desc">{{ .imagedescription }}</div>
 						<a class="pin-custom" href="https://www.pinterest.com/pin/create/button/?url={{ .Site.GetPage }}&media={{ .imagenew }}&description={{ .imagedescription }}" data-pin-do="buttonPin" data-pin-custom="true"><img src="https://djh82r8xhqebh.cloudfront.net/images/pin-custom.png" /></a>
 					{{ end }}

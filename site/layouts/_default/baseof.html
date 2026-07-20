@@ -2,8 +2,11 @@
 <html lang="en">
   {{ partial "head" . }}
   <body class="sans-serif">
-    {{ partial "nav" . }}
-    {{ block "main" . }}{{ end }} 
-    {{ partial "footer" . }} 
+    {{ partial "password-gate" . }}
+    <div class="site-content">
+      {{ partial "nav" . }}
+      {{ block "main" . }}{{ end }}
+      {{ partial "footer" . }}
+    </div>
   </body>
 </html>

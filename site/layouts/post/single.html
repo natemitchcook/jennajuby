@@ -6,7 +6,7 @@
       <p>{{ .Date.Format "Mon, Jan 2, 2006" }}</p>
     </div>
     <div class="cms mw6">
-      {{ if .Params.image }}<img src="{{ .Params.image }}" alt="{{ .Title }}" />{{ end }}
+      {{ if .Params.image }}<img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy" />{{ end }}
 
         {{ .Content }}
 
@@ -15,8 +15,12 @@
     </div>
   </div>
 <script>
-$('body').on('click', 'a', function(e) {
-  e.target.target = '_blank';
+document.body.addEventListener('click', function(e) {
+  var link = e.target.closest('a');
+  if (link && link.hostname !== window.location.hostname) {
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  }
 });
 </script>
 {{ end }}
