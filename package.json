@@ -55,5 +55,9 @@
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0",
     "svg-sprite-loader": "^3.0.0"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.11",
+    "natives": "^1.1.6"
   }
 }
