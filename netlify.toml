@@ -4,7 +4,7 @@
 
 [build.environment]
   YARN_VERSION = "1.22.22"
-  NODE_VERSION = "18"
+  NODE_VERSION = "10"
 
 [context.deploy-preview]
   command = "yarn build-preview"
@@ -50,5 +50,5 @@
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
   [plugins.inputs]
-    siteUrl = "https://www.jennajuby.com"
+    baseUrl = "https://www.jennajuby.com"
     providers = ["google", "bing"]
