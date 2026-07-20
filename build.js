@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const postcss = require("postcss");
 const cssImport = require("postcss-import");
+const customMedia = require("postcss-custom-media");
+const customProperties = require("postcss-custom-properties");
 const cssnano = require("cssnano");
 const webpack = require("webpack");
 
@@ -18,6 +20,8 @@ async function buildCSS() {
   const input = fs.readFileSync("./src/css/main.css", "utf8");
   const result = await postcss([
     cssImport({ from: "./src/css/main.css" }),
+    customMedia(),
+    customProperties({ preserve: false }),
     cssnano({ preset: "default" }),
   ]).process(input, { from: "./src/css/main.css", to: "./dist/css/main.css" });
 
